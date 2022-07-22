@@ -1,0 +1,103 @@
+<div *ngIf="pais.length ==0" class="alert alert-info">
+    Cargando...
+</div>
+
+
+<div *ngIf="pais.length > 0" class="row animate__animated animate__bounceInDown ">
+    <div class="col-8">
+        <h2>País: <small>{{ pais[0].name.common }}</small> </h2>
+        <hr>
+        <div>
+            <ul class="text-center">
+                <li class="badge bg-primary me-1">
+                    {{pais[0].translations['ara'].common }}</li>
+                <li class="badge bg-primary me-1">
+                    {{pais[0].translations['ces'].common }}</li>
+                <li class="badge bg-primary me-1">
+                    {{pais[0].translations['cym'].common }}</li>
+                <li class="badge bg-primary me-1">
+                    {{pais[0].translations['deu'].common }}</li>
+                <li class="badge bg-primary me-1">
+                    {{pais[0].translations['est'].common }}</li>
+                <li class="badge bg-primary me-1">
+                    {{pais[0].translations['fin'].common }}</li>
+                <li class="badge bg-primary me-1">
+                    {{pais[0].translations['fra'].common }}</li>
+                <li class="badge bg-primary me-1">
+                    {{pais[0].translations['hrv'].common }}</li>
+                <li class="badge bg-primary me-1">
+                    {{pais[0].translations['hun'].common }}</li>
+                <li class="badge bg-primary me-1">
+                    {{pais[0].translations['ita'].common }}</li>
+                <li class="badge bg-primary me-1">
+                    {{pais[0].translations['jpn'].common }}</li>
+                <li class="badge bg-primary me-1">
+                    {{pais[0].translations['kor'].common }}</li>
+                <li class="badge bg-primary me-1">
+                    {{pais[0].translations['nld'].common }}</li>
+                <li class="badge bg-primary me-1">
+                    {{pais[0].translations['per'].common }}</li>
+                <li class="badge bg-primary me-1">
+                    {{pais[0].translations['pol'].common }}</li>
+                <li class="badge bg-primary me-1">
+                    {{pais[0].translations['por'].common }}</li>
+                <li class="badge bg-primary me-1">
+                    {{pais[0].translations['rus'].common }}</li>
+                <li class="badge bg-primary me-1">
+                    {{pais[0].translations['slk'].common }}</li>
+                <li class="badge bg-primary me-1">
+                    {{pais[0].translations['spa'].common }}</li>
+                <li class="badge bg-primary me-1">
+                    {{pais[0].translations['swe'].common }}</li>
+                <li class="badge bg-primary me-1">
+                    {{pais[0].translations['urd'].common }}</li>
+                <li class="badge bg-primary me-1">
+                    {{pais[0].translations['zho'].common }}</li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="col my-2">
+        <img [src]="pais[0].flags.png" class="img-thumbnail" alt="">
+    </div>
+
+    <div class="row">
+
+
+        <div class="col-12">
+            <h3>Información</h3>
+            <hr>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong>Capital:</strong>
+                    <span *ngIf="pais[0].capital">
+                        {{pais[0].capital[0]}}
+                    </span> 
+                    <span *ngIf="!pais[0].capital">
+                        No existente
+                    </span> 
+                </li>
+                <li class="list-group-item">
+                    <strong>Población:</strong>
+                    {{pais[0].population | number}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Área geográfica(metros):</strong>
+                    {{pais[0].area | number}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Lenguajes:</strong>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item" *ngFor="let key of pais[0].languages | keyvalue">{{key.value + " "}}
+                        </li>
+                    </ul>
+
+
+                </li>
+            </ul>
+            <!-- <pre class="mt-3">
+                {{pais | json}}
+            </pre> -->
+        </div>
+    </div>
+</div>

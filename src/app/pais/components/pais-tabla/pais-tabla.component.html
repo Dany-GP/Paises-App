@@ -1,0 +1,32 @@
+<div class="table-responsive animate__animated animate__zoomIn">
+    <table class="table table-light rounded table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Bandera</th>
+                <th>Nombre</th>
+                <th>Capital</th>
+                <th>Población</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of paises; let i = index">
+                <td>{{i+1}}</td>
+                <td><img class="small-flag" src="{{ item.flags.png }}" alt=""></td>
+                <td>{{item.name.official}}</td>
+                <td>
+                    <span *ngIf="item.capital">{{item.capital[0]}}</span>
+                    <span *ngIf="!item.capital">
+                        No existente
+                    </span>
+                </td>
+                <td>{{item.population|number}}</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" [routerLink]="['/pais', item.cca2]">Ver</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
